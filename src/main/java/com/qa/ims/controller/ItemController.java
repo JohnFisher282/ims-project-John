@@ -64,7 +64,7 @@ public class ItemController implements CrudController<Item> {
 	}
 
 	/**
-	 * Deletes an existing item by the id of the item
+	 * Deletes an existing item by the item_id of the item
 	 * 
 	 * @return
 	 */

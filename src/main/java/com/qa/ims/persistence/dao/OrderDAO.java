@@ -61,17 +61,16 @@ import com.qa.ims.utils.DBUtils;
 		}
 
 		/**
-		 * Creates a customer in the database
+		 * Creates an order in the database
 		 * 
-		 * @param customer - takes in a customer object. id will be ignored
+		 * @param order - takes in a customer object. order_id will be ignored
 		 */
 		@Override
 		public Order create(Order order) {
 			try (Connection connection = DBUtils.getInstance().getConnection();
 					PreparedStatement statement = connection
-							.prepareStatement("INSERT INTO items(order_id, fk_id) VALUES (?, ?)");) {
-				statement.setLong(1, order.getOrderId());
-				statement.setLong(2, order.getFkId());
+							.prepareStatement("INSERT INTO orders(fk_id) VALUES (?)");) {
+				statement.setLong(1, order.getFkId());
 				statement.executeUpdate();
 				return readLatest();
 			} catch (Exception e) {
@@ -100,7 +99,7 @@ import com.qa.ims.utils.DBUtils;
 		/**
 		 * Updates an order in the database
 		 * 
-		 * @param order - takes in an order object, the id field will be used to
+		 * @param order - takes in an order object, the order_id field will be used to
 		 *                 update that order in the database
 		 * @return
 		 */
@@ -108,7 +107,7 @@ import com.qa.ims.utils.DBUtils;
 		public Order update(Order order) {
 			try (Connection connection = DBUtils.getInstance().getConnection();
 					PreparedStatement statement = connection
-							.prepareStatement("UPDATE orders SET order_id = ?, fk_id = ? WHERE order_id = ?");) {
+							.prepareStatement("UPDATE orders SET fk_id = ? WHERE order_id = ?");) {
 				statement.setLong(1, order.getOrderId());
 				statement.setLong(2, order.getFkId());
 				statement.executeUpdate();

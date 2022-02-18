@@ -27,9 +27,9 @@ import com.qa.ims.utils.DBUtils;
 		}
 
 		/**
-		 * Reads all customers from the database
+		 * Reads all items from the database
 		 * 
-		 * @return A list of customers
+		 * @return A list of items
 		 */
 		@Override
 		public List<Item> readAll() {
@@ -62,9 +62,9 @@ import com.qa.ims.utils.DBUtils;
 		}
 
 		/**
-		 * Creates a customer in the database
+		 * Creates an item in the database
 		 * 
-		 * @param customer - takes in a customer object. id will be ignored
+		 * @param item - takes in a item object. item_id will be ignored
 		 */
 		@Override
 		public Item create(Item item) {
@@ -99,10 +99,10 @@ import com.qa.ims.utils.DBUtils;
 		}
 
 		/**
-		 * Updates a customer in the database
+		 * Updates an item in the database
 		 * 
-		 * @param customer - takes in a customer object, the id field will be used to
-		 *                 update that customer in the database
+		 * @param item - takes in an item object, the item_id field will be used to
+		 *                 update that item in the database
 		 * @return
 		 */
 		@Override
@@ -123,9 +123,9 @@ import com.qa.ims.utils.DBUtils;
 		}
 
 		/**
-		 * Deletes a customer in the database
+		 * Deletes a item in the database
 		 * 
-		 * @param id - id of the customer
+		 * @param item_id - item_id of the item
 		 */
 		@Override
 		public int delete(long itemId) {

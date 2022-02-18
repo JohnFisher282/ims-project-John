@@ -31,7 +31,7 @@ private Long fkId;
 
 	@Override
 	public String toString() {
-		return "Order id:" + orderId + " FK_id" + fkId;
+		return "Order id:" + orderId + " FK_id:" + fkId;
 	}
 
 	@Override
