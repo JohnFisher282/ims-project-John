@@ -63,14 +63,14 @@ public class OrderItemDAO {
 	/**
 	 * Creates an order in the database
 	 * 
-	 * @param order - takes in a customer object. order_id will be ignored
+	 * @param order - takes in an order object. order_id will be ignored
 	 */
 
-	public OrderItem create(OrderItem additem) {
+	public OrderItem create(OrderItem orderitem) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
 						.prepareStatement("INSERT INTO items_orders(fk_order_id, fk_item_id) VALUES (?)");) {
-			statement.setLong(1, additem.getFkItemId());
+			statement.setLong(1, orderitem.getFkItemId());
 			statement.executeUpdate();
 			return readLatest();
 		} catch (Exception e) {
@@ -80,7 +80,7 @@ public class OrderItemDAO {
 		return null;
 	}
 
-	// Read = Calculate cost of order
+
 	public OrderItem read(Long fkOrderIdValue) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
@@ -136,7 +136,10 @@ public class OrderItemDAO {
 		}
 		return 0;
 	}
-
+	
+	/**
+	 * Method called in OrderController to find order total
+	 */
 	public Double findOrderTotal(Long itemTotal) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection.prepareStatement(
@@ -153,7 +156,10 @@ public class OrderItemDAO {
 		}
 		return null;
 	}
-
+	
+	/**
+	 * Method called in OrderController to add item to an order
+	 */
 	public OrderItem addItem(Long fkOrderId, Long fkItemId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
@@ -168,7 +174,10 @@ public class OrderItemDAO {
 		}
 		return null;
 	}
-
+	
+	/**
+	 * Method called in OrderController to delete item from an order
+	 */
 	public int deleteItemFromOrder(long fkOrderId, long fkItemId) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection

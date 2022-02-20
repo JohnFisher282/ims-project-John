@@ -77,7 +77,7 @@ import com.qa.ims.utils.DBUtils;
 				LOGGER.debug(e);
 				LOGGER.error(e.getMessage());
 			}
-			return null;
+			return order;
 		}
 
 		@Override
@@ -116,7 +116,7 @@ import com.qa.ims.utils.DBUtils;
 				LOGGER.debug(e);
 				LOGGER.error(e.getMessage());
 			}
-			return null;
+			return order;
 		}
 
 		/**

@@ -47,7 +47,7 @@ public class OrderController implements CrudController<Order> {
 	 */
 	@Override
 	public Order create() {
-		LOGGER.info("Please enter a fk_id");
+		LOGGER.info("Please enter the customer_id to place the order under");
 		Long fkId = utils.getLong();
 		Order order = orderDAO.create(new Order(fkId));
 		LOGGER.info("Order created");
@@ -61,7 +61,7 @@ public class OrderController implements CrudController<Order> {
 	public Order update() {
 		LOGGER.info("Please enter the order_id of the order you would like to update");
 		Long orderId = utils.getLong();
-		LOGGER.info("Please enter fk_id");
+		LOGGER.info("Please enter customer_id");
 		Long fkId = utils.getLong();
 		Order order = orderDAO.update(new Order(orderId, fkId));
 		LOGGER.info("Order Updated");
@@ -80,8 +80,11 @@ public class OrderController implements CrudController<Order> {
 		return orderDAO.delete(orderId);
 	}
 	
+	/**
+	 * Calculates the order total of a given order_id
+	 */
 	public Double findOrderTotal() {
-		LOGGER.info("Please enter the fk_order_id of the order you would like to find the total cost of");
+		LOGGER.info("Please enter the order_id of the order you would like to find the total cost of");
 		Long fkOrderId = utils.getLong();
 		Double cost = orderItemDAO.findOrderTotal(fkOrderId);
 		LOGGER.info("The total value of the order_id is " + cost);
@@ -89,20 +92,26 @@ public class OrderController implements CrudController<Order> {
 	
 	}
 	
+	/**
+	 * Adds an item to an existing order using the order_id and item_id
+	 */
 	public OrderItem addItem() {
-		LOGGER.info("Please enter the fk_order_id of the order you would like to add an item to");
+		LOGGER.info("Please enter the order_id of the order you would like to add an item to");
 		Long fkOrderId = utils.getLong();
-		LOGGER.info("Please enter the fk_item_id you would like to add");
+		LOGGER.info("Please enter the item_id you would like to add");
 		Long fkItemId = utils.getLong();
 		OrderItem orderItemAdded = orderItemDAO.addItem(fkOrderId, fkItemId);
 		LOGGER.info("Order Updated");
 		return orderItemAdded;
 	}
 	
+	/**
+	 * Deletes items with a particular item_id from an existing order
+	 */
 	public int deleteItemFromOrder() {
-		LOGGER.info("Please enter the fk_order_id of the order you would like to delete an item from");
+		LOGGER.info("Please enter the order_id of the order you would like to delete an item from");
 		Long fkOrderId = utils.getLong();
-		LOGGER.info("Please enter the fk_item_id you would like to delete");
+		LOGGER.info("Please enter the item_id you would like to delete");
 		Long fkItemId = utils.getLong();
 		return orderItemDAO.deleteItemFromOrder(fkOrderId, fkItemId);
 	}
