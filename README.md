@@ -23,7 +23,7 @@ A suitable IDE for development (Eclipse, IntelliJ, etc.)
 
 ### Installing
 
-Please follow the following steps to install the programme succesfully:
+Please follow the following steps to install the program successfully:
 
 ```
 Clone the Git Repository as described above;
@@ -32,7 +32,7 @@ Open your IDE and import the IMS project as a Maven project;
 Once this has been done successfully, run the programme in your IDE and the Console will greet you with options to manipulate the database.
 ```
 
-Upon running the programme, the Console will print the following:
+Upon running the program, the Console will print the following:
 
 Welcome to the Inventory Management System!
 Which entity would you like to use?
@@ -86,7 +86,7 @@ These tests have been written to test the functionality of individual methods, t
 ```
 
 ### Integration Tests 
-These tests have been used in the 'Controller' classes of the project to simulate and test the actual running of the programme and the more complex methods contained within these classes. By using Mockito, we can simulate the functionaility of these methods using 'mocked' data, rather than calling the actual methods from the original classes. Please see the below example taken from the ItemControllerTest class:
+These tests have been used in the 'Controller' classes of the project to simulate and test the actual running of the program and the more complex methods contained within these classes. By using Mockito, we can simulate the functionaility of these methods using 'mocked' data, rather than calling the actual methods from the original classes. Please see the below example taken from the ItemControllerTest class:
 
 ```
 	@Test
@@ -120,7 +120,7 @@ These tests have been used in the 'Controller' classes of the project to simulat
 
 ## Deployment
 
-The Maven Deploy functionality allows the project to deployed to a remote repository for future development. The programme can also be taken from GitHub, of course.
+The Maven Deploy functionality allows the project to deployed to a remote repository for future development. The program can also be taken from GitHub, of course.
 
 ## Built With
 
