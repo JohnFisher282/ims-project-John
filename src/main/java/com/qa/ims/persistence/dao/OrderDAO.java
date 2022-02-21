@@ -107,7 +107,7 @@ import com.qa.ims.utils.DBUtils;
 		public Order update(Order order) {
 			try (Connection connection = DBUtils.getInstance().getConnection();
 					PreparedStatement statement = connection
-							.prepareStatement("UPDATE orders SET fk_id = ? WHERE order_id = ?");) {
+							.prepareStatement("UPDATE orders SET order_id = ? WHERE fk_id = ?");) {
 				statement.setLong(1, order.getOrderId());
 				statement.setLong(2, order.getFkId());
 				statement.executeUpdate();
