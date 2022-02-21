@@ -1,4 +1,4 @@
-Coverage: 66.2%
+Coverage: 60.7%
 # IMS Project - Week 5
 
 This is an Inventory Management System (IMS), created for my Week 5 Project at QA Academy. It can receive inputs from the CLI to perform simple CRUD functions on a SQL database. This includes adding, amending, and viewing data related to Orders, Items, and Customers. This IMS can also calculate the total cost of an order, delete items from an order, and add items to an order.
